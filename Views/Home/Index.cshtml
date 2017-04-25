@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<LR9.Models.DataText>
+@{
+    Layout = null;
+}
+
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/js/file.js" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <input type="button" id="button1" value="Обновить">
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <table>
+                    <tr><th>Id</th><th>Первая ячейка</th><th>Вторая ячейка</th><th>Третья ячейка</th><th></th></tr>
+                    @foreach (var a in Model)
+                    {
+                        <tr><td>@a.Id</td><td>@a.firstBox</td><td>@a.secondBox</td><td>@a.thirdBox</td><td><a asp-action="Delete" asp-route-_id="@a.Id">Удалить запись</a></td></tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div><a asp-action="AddNew" >Добавить запись</a></div>
+    <div> </div>
+    <br />
+    </body>
+</html>
